@@ -1,33 +1,31 @@
-import React from "react";
 import { Pie } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { SingleUser, } from "../interface/apiDataTypes";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const UsersPieChart = ({ comparisonData }) => {
+const UsersPieChart = ({ comparisonData }: { comparisonData: SingleUser[] }) => {
 
     const analyticalDataOfUserStatus = comparisonData
     const activeUsers = analyticalDataOfUserStatus?.filter((user) => user?.status).length;
     const inactiveUsers = analyticalDataOfUserStatus.length - activeUsers;
 
-    // Chart data
     const data = {
         labels: ["Active Users", "Inactive Users"],
         datasets: [
             {
                 data: [activeUsers, inactiveUsers],
-                backgroundColor: ["#34D399", "#F87171"], // Colors for active and inactive users
-                hoverBackgroundColor: ["#10B981", "#EF4444"], // Hover colors
+                backgroundColor: ["#34D399", "#F87171"],
+                hoverBackgroundColor: ["#10B981", "#EF4444"],
                 borderWidth: 2,
             },
         ],
     };
 
-    // Chart options
     const options = {
         responsive: true,
         plugins: {
-            legend: { display: true, position: "top" },
+            legend: { display: true, position: 'top' as const },
             tooltip: { enabled: true },
         },
     };
