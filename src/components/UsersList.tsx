@@ -134,16 +134,16 @@ const UsersList = () => {
                     {!loading && <Pagination className="mt-10">
                         <PaginationContent>
                             <PaginationItem>
-                                <PaginationPrevious onClick={handlePreviousCount} />
+                                <PaginationPrevious size={30} onClick={handlePreviousCount} />
                             </PaginationItem>
                             <PaginationItem>
-                                <PaginationLink>{pageCount}</PaginationLink>
+                                <PaginationLink size={15}>{pageCount}</PaginationLink>
                             </PaginationItem>
                             <PaginationItem>
                                 <PaginationEllipsis />
                             </PaginationItem>
                             <PaginationItem>
-                                <PaginationNext onClick={handleNextCount} />
+                                <PaginationNext size={30} onClick={handleNextCount} />
                             </PaginationItem>
                         </PaginationContent>
                     </Pagination>}

@@ -18,8 +18,8 @@ const yearsList = [
     2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024
 ]
 const UsersLineChart = ({ allData }: { allData: SingleUser[] }) => {
-    const [monthsCount, setmonthsCount] = useState(5)
-    const [year, setYear] = useState(new Date().getFullYear())
+    const [monthsCount, setmonthsCount] = useState<string>("5")
+    const [year, setYear] = useState<number>(new Date().getFullYear())
     const getLastSixMonths = () => {
         const months = [];
         const now = new Date();
@@ -74,7 +74,7 @@ const UsersLineChart = ({ allData }: { allData: SingleUser[] }) => {
             <h1 className="text-xl sm:text-2xl md:text-3xl font-bold ml-5 mt-2 text-center">User Registration Trend (over {Number(monthsCount) + 1} Months)</h1>
             <div className="flex justify-center items-center gap-3">
                 <div className="gap-3 sm:flex items-center hidden"><Filter />Filter by: </div>
-                <Select onValueChange={(e: number) => setmonthsCount(e)}>
+                <Select onValueChange={(e: string) => setmonthsCount(e)}>
                     <SelectTrigger className="w-44">
                         <SelectValue placeholder="Date Range" />
                     </SelectTrigger>
@@ -84,7 +84,7 @@ const UsersLineChart = ({ allData }: { allData: SingleUser[] }) => {
                         <SelectItem value="11">Last 12 Months</SelectItem>
                     </SelectContent>
                 </Select>
-                <Select onValueChange={(e: number) => setYear(e)}>
+                <Select onValueChange={(e: string) => setYear(Number(e))}>
                     <SelectTrigger className="w-44">
                         <SelectValue placeholder="Year Range" />
                     </SelectTrigger>
