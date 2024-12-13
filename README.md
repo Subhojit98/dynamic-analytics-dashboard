@@ -1,13 +1,13 @@
 # Dynamic and Analytics Dashboard
 
-This project is a dynamic and responsive dashboard application built with **React.js**, **Redux**, **TypeScript**, and **Redux Thunk** for API integration. It includes a user management dashboard and an analytics dashboard featuring charts and filters.
+This project is a dynamic and responsive dashboard application built with **React.js**, **Redux**, **TypeScript**,**Tailwindcss, **Shandcn, and **Redux Thunk** for API integration. It includes a user management dashboard and an analytics dashboard featuring charts and filters.
 
 ## Features
 
 ### User Management Dashboard
 
 1. **Login Page**:
-   - User authentication with a mock API.
+   - User authentication with a mock API [https://mockapi.io].
 2. **User Table**:
    - Display user details in a table format.
    - Actions include viewing user details and deleting users.
@@ -23,7 +23,7 @@ This project is a dynamic and responsive dashboard application built with **Reac
    - Display key metrics including:
      - Total Users
      - Active Users (mocked based on status field)
-     - Deleted Users (tracked during the session).
+     - Deleted Users (tracked during the session): Note that we are not deleting users using the POST or DELETE method, as it is not feasible for our project. Instead, we are simulating the deletion process.
 
 2. **Charts Section**:
 
@@ -92,4 +92,5 @@ This project is a dynamic and responsive dashboard application built with **Reac
 ### Author
 
 Developed by Subhajit Chowhan.
+
 # dynamic-analytics-dashboard

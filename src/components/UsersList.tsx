@@ -22,7 +22,6 @@ import { useEffect, useState } from "react"
 import { deleteUserById, fetchAllUsers, searchUserQuery, setCurrentuser } from "../api/fetch-data"
 import { RootState, useAppDispatch } from "../store/DataStore"
 import Loader from "./ui/loader"
-import { fetchDeletedUsers } from "../features/analyticsSlice"
 import Error from "./ui/error"
 
 
@@ -31,7 +30,7 @@ const UsersList = () => {
     const [pageCount, setPageCount] = useState(1)
     const [searchQuery, setSearchQuery] = useState("")
     const [isUserDetails, setIsUserDetails] = useState(false)
-    const [deletedUserCount, setDeletedUserCount] = useState(0)
+    // const [deletedUserCount, setDeletedUserCount] = useState(0)
 
     const dispatch = useAppDispatch()
     const { users, error, loading, currentUser } = useSelector((state: RootState) => state.allUsers)
@@ -49,7 +48,6 @@ const UsersList = () => {
 
     const handleDeleteUser = (id: string) => {
         dispatch(deleteUserById(id))
-        setDeletedUserCount(deletedUserCount + 1)
     }
 
     const handelSelectUser = (id: string) => {
@@ -75,10 +73,6 @@ const UsersList = () => {
     useEffect(() => {
         dispatch(fetchAllUsers(pageCount))
     }, [pageCount])
-
-    useEffect(() => {
-        dispatch(fetchDeletedUsers(deletedUserCount))
-    }, [deletedUserCount])
 
     return (
         <div className="w-full h-full">
@@ -152,7 +146,7 @@ const UsersList = () => {
 
             {
                 isUserDetails &&
-                <div className="fixed top-40 flex justify-center w-[95%] sm:w-full h-[70vh] px-2 md:w-3/5 md:h-[50vh] md:right-0 xl:w-3/12 text-white">
+                <div className="fixed top-40 flex justify-center w-[95%] sm:w-full h-[60vh] px-2 md:w-3/5 md:h-[55vh] md:right-0 xl:w-3/12 text-white bg-gray-600">
                     <div className=" w-full h-full flex items-center justify-center">
 
                         <div className="max-w-sm w-full bg-white rounded-lg shadow-md p-6">

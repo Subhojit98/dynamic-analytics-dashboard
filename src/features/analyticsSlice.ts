@@ -36,10 +36,8 @@ const handelFetchUsers = (state: UsersState, action: PayloadAction<SingleUser[]>
 }
 
 const handeldeletedUserCount = (state: UsersState, action: PayloadAction<number>)=>{
-    state.deletedUsersCount = state.deletedUsersCount + action.payload
-    state.loading = false
-    console.log(state.deletedUsersCount)
-    
+      state.deletedUsersCount += action.payload;
+    state.loading = false    
 }
 
 const analyticDataSlice = createSlice({

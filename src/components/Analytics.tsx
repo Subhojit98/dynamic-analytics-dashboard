@@ -21,7 +21,6 @@ const Analytics = () => {
 
     const { usersData, activeUsers, error, loading, deletedUsersCount } = useSelector((state: RootState) => state.usersAnalyticsData)
 
-    console.log(deletedUsersCount)
     useEffect(() => {
         dispatch(fetAllUserData())
     }, [])
